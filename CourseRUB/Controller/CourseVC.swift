@@ -10,23 +10,34 @@ import UIKit
 
 class CourseVC: UIViewController{
 
+    let refreshController = UIRefreshControl()
     @IBOutlet private weak var collectionMoney: UICollectionView!
     @IBOutlet private weak var downloadIndicator: UIActivityIndicatorView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        update()
+        self.collectionMoney.insertSubview(refreshController, at: 0)
+        refreshController.addTarget(self, action: #selector(update), for: .valueChanged)
+        
         self.collectionMoney.delegate = self
         self.collectionMoney.dataSource = self
         
+
+    }
+    
+    @objc func update() {
         Processing.instance.downloadAllData {
             DispatchQueue.main.async {
                 self.collectionMoney.reloadData()
                 self.downloadIndicator.stopAnimating()
             }
         }
+        self.refreshController.endRefreshing()
     }
+    
+    
 }
 
 

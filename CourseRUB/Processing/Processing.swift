@@ -28,10 +28,7 @@ class Processing {
                     for (_, firstValue) in valute {
                         self.allMoney.append(firstValue)
                     }
-                    
                     complition()
-                    
-                    
                 } catch let error as NSError {
                     print(error.localizedDescription)
                     
