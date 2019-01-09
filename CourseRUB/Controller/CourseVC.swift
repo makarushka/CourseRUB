@@ -11,7 +11,6 @@ import UIKit
 class CourseVC: UIViewController{
 
     @IBOutlet private weak var collectionMoney: UICollectionView!
-    @IBOutlet weak var codeMoney: UILabel!
     @IBOutlet private weak var downloadIndicator: UIActivityIndicatorView!
     
     
