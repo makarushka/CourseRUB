@@ -29,6 +29,11 @@ class Processing {
                     for (_, firstValue) in valute {
                         self.allMoney.append(firstValue)
                     }
+                    
+                    self.allMoney = self.allMoney.sorted(by: { (value1, value2) -> Bool in
+                        value1.name.first! < value2.name.first!
+                    })
+                    
                     complition()
                 } catch let error as NSError {
                     print(error.localizedDescription)
