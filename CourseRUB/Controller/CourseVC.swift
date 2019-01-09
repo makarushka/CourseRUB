@@ -10,12 +10,21 @@ import UIKit
 
 class CourseVC: UIViewController{
 
-    @IBOutlet weak var collectionMoney: UICollectionView!
+    @IBOutlet private weak var collectionMoney: UICollectionView!
+    @IBOutlet private weak var downloadIndicator: UIActivityIndicatorView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.collectionMoney.delegate = self
+        self.collectionMoney.dataSource = self
+        
         Processing.instance.downloadAllData {
-            self.collectionMoney.reloadData()
+            DispatchQueue.main.async {
+                self.collectionMoney.reloadData()
+                self.downloadIndicator.stopAnimating()
+            }
         }
     }
 }
@@ -36,6 +45,7 @@ extension CourseVC: UICollectionViewDelegate, UICollectionViewDataSource {
             cell.configureCell()
             return cell
         }
+        
         return UICollectionViewCell()
     }
 }

@@ -10,10 +10,10 @@ import Foundation
 
 
 
-struct ModelMoney: Codable {
-    let date, previousDate: Date
+struct ModelMoney: Decodable {
+    let date, previousDate: String
     let previousURL: String
-    let timestamp: Date
+    let timestamp: String
     let valute: [String: Valute]
     
     enum CodingKeys: String, CodingKey {
@@ -25,7 +25,7 @@ struct ModelMoney: Codable {
     }
 }
 
-struct Valute: Codable {
+struct Valute: Decodable {
     let id, numCode, charCode: String
     let nominal: Int
     let name: String

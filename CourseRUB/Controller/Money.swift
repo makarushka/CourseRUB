@@ -16,8 +16,10 @@ class Money: UICollectionViewCell {
     @IBOutlet private weak var countMoney: UILabel!
     
     func configureCell() {
-        titleMoney.text = modelFromCell?.name
-        countMoney.text = "\(modelFromCell?.value)"
+        if let model = modelFromCell {
+            titleMoney.text = model.name
+            countMoney.text = String(model.value)
+        }
     }
     
 }

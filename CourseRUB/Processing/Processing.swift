@@ -18,22 +18,29 @@ class Processing {
     
     func downloadAllData(complition: @escaping DownloadComplited) {
         if let url = URL(string: BASE_URL_REQUEST_STRING) {
-            let task = URLSession.shared.dataTask(with: url) { data, response, Error in
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {return}
                 let decoder = JSONDecoder()
                 do {
-                    let myStruct = try decoder.decode(ModelMoney.self, from: data)
-                    myStruct.valute.forEach() {
-                        self.allMoney.append($0.value)
-                        complition()
+                    let myModel = try decoder.decode(ModelMoney.self, from: data)
+                    let valute = myModel.valute
+                    
+                    for (_, firstValue) in valute {
+                        self.allMoney.append(firstValue)
                     }
+                    
+                    complition()
+                    
                     
                 } catch let error as NSError {
                     print(error.localizedDescription)
                     
                 }
             }
-            task.resume()
+            let queue = DispatchQueue.global(qos: .userInitiated)
+            queue.async {
+                task.resume()
+            }
             
         }
     }
