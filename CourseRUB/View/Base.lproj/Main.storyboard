@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iEx-M5-rmg">
-                                    <size key="itemSize" width="119" height="167"/>
+                                    <size key="itemSize" width="119" height="195"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -33,14 +33,14 @@
                                 </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoneyCell" id="nVY-Bt-eDS" customClass="Money" customModule="CourseRUB" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="119" height="167"/>
+                                        <rect key="frame" x="10" y="10" width="119" height="195"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="195"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleMoney" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cmu-MC-XyH">
-                                                    <rect key="frame" x="4" y="68" width="111" height="31"/>
+                                                    <rect key="frame" x="4" y="51" width="111" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -51,8 +51,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="1ZA-YA-sg7">
+                                                    <rect key="frame" x="12" y="162" width="94" height="29"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="convertMoneyAction:" destination="nVY-Bt-eDS" eventType="valueChanged" id="dCn-iL-V3G"/>
+                                                    </connections>
+                                                </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="countMoney" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Dm-jz-0la">
-                                                    <rect key="frame" x="2" y="123" width="115" height="13.5"/>
+                                                    <rect key="frame" x="3" y="89" width="113" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -60,18 +67,18 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="1Dm-jz-0la" secondAttribute="trailing" constant="2" id="BCB-fQ-mwg"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Dm-jz-0la" secondAttribute="trailing" constant="3" id="BCB-fQ-mwg"/>
                                             <constraint firstItem="SeS-LH-uW8" firstAttribute="top" secondItem="nVY-Bt-eDS" secondAttribute="top" constant="20" id="BRz-Hf-KD3"/>
-                                            <constraint firstItem="Cmu-MC-XyH" firstAttribute="top" secondItem="nVY-Bt-eDS" secondAttribute="top" constant="68" id="Cjn-Yc-5qG"/>
+                                            <constraint firstItem="Cmu-MC-XyH" firstAttribute="top" secondItem="nVY-Bt-eDS" secondAttribute="top" constant="51" id="Cjn-Yc-5qG"/>
                                             <constraint firstItem="Cmu-MC-XyH" firstAttribute="leading" secondItem="nVY-Bt-eDS" secondAttribute="leading" constant="4" id="KuP-S1-4qB"/>
-                                            <constraint firstAttribute="bottom" secondItem="Cmu-MC-XyH" secondAttribute="bottom" constant="68" id="R1W-zt-xDh"/>
-                                            <constraint firstItem="1Dm-jz-0la" firstAttribute="top" secondItem="nVY-Bt-eDS" secondAttribute="top" constant="123" id="Rku-d4-vPl"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cmu-MC-XyH" secondAttribute="bottom" constant="121" id="R1W-zt-xDh"/>
+                                            <constraint firstItem="1Dm-jz-0la" firstAttribute="top" secondItem="nVY-Bt-eDS" secondAttribute="top" constant="89" id="Rku-d4-vPl"/>
                                             <constraint firstItem="SeS-LH-uW8" firstAttribute="leading" secondItem="nVY-Bt-eDS" secondAttribute="leading" constant="4" id="TfU-VL-6MG"/>
                                             <constraint firstAttribute="trailing" secondItem="Cmu-MC-XyH" secondAttribute="trailing" constant="4" id="XMo-o8-IXc"/>
-                                            <constraint firstItem="Cmu-MC-XyH" firstAttribute="top" secondItem="SeS-LH-uW8" secondAttribute="bottom" constant="23" id="aSe-HK-pyE"/>
+                                            <constraint firstItem="Cmu-MC-XyH" firstAttribute="top" secondItem="SeS-LH-uW8" secondAttribute="bottom" constant="6" id="aSe-HK-pyE"/>
                                             <constraint firstAttribute="trailing" secondItem="SeS-LH-uW8" secondAttribute="trailing" constant="4" id="qgn-mI-Iyt"/>
-                                            <constraint firstItem="1Dm-jz-0la" firstAttribute="leading" secondItem="nVY-Bt-eDS" secondAttribute="leading" constant="2" id="sCT-UU-KJh"/>
-                                            <constraint firstAttribute="bottom" secondItem="1Dm-jz-0la" secondAttribute="bottom" constant="30.5" id="uZJ-Ro-Sng"/>
+                                            <constraint firstItem="1Dm-jz-0la" firstAttribute="leading" secondItem="nVY-Bt-eDS" secondAttribute="leading" constant="3" id="sCT-UU-KJh"/>
+                                            <constraint firstAttribute="bottom" secondItem="1Dm-jz-0la" secondAttribute="bottom" constant="81" id="uZJ-Ro-Sng"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="codeMoney" destination="SeS-LH-uW8" id="CGl-2u-B8O"/>

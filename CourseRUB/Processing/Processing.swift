@@ -17,6 +17,7 @@ class Processing {
     var allMoney: [Valute] = []
     
     func downloadAllData(complition: @escaping DownloadComplited) {
+        self.allMoney = []
         if let url = URL(string: BASE_URL_REQUEST_STRING) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
                 guard let data = data else {return}
