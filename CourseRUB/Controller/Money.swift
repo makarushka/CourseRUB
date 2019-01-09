@@ -14,7 +14,7 @@ class Money: UICollectionViewCell {
     private var moneyCount: Double = 0.0
     private var convertIndex: Double = 1 {
         willSet {
-            countMoney.text = "\(round(1000 * (newValue) * moneyCount) / 1000) руб за \(Int(newValue)) шт."
+            countMoney.text = "\(round(1000 * (newValue) * moneyCount) / 1000) руб за \(Int(newValue)) шт"
         }
     }
     
